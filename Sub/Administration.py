@@ -19,7 +19,7 @@ def GRL(message: Message):
 
         if message.chat.type == Constant.Type_Private:
 
-            Response.GRL(message.from_user.id, message.from_user.language_code, 'None')
+            Response.GRL(message.from_user.id, message.from_user.language_code, DataBase.Load())
 
         else:
 

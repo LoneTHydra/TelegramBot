@@ -40,18 +40,18 @@ def Load():
 
 
 def Insert(Title, ID, Administrator_ID='NULL'):
-    # try:
+    try:
 
-    con = Preload()
-    cur = con.cursor()
-    cur.execute(f'''INSERT INTO Bot(Title, ID, Administrator_ID) VALUES("{Title}", "{ID}", "{Administrator_ID}")''')
+        con = Preload()
+        cur = con.cursor()
+        cur.execute(f'''INSERT INTO Bot(Title, ID, Administrator_ID) VALUES("{Title}", "{ID}", "{Administrator_ID}")''')
 
-    con.commit()
-    cur.close()
-    con.close()
+        con.commit()
+        cur.close()
+        con.close()
 
-    # except Exception as Err:
-        # print(Err)
+    except Exception as Err:
+        print(Err)
 
 
 def GFound(Title):

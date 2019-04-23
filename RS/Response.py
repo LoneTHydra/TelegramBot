@@ -39,7 +39,7 @@ def GRP(u_id, lang):
 
 def FNL(u_id, lang, SEgroup, SEadm):
     if Constant.DefaultLang in lang:
-    	bot.send_message(u_id, f'Вот известная мне информация:\n\
+        bot.send_message(u_id, f'Вот известная мне информация:\n\
     	$О самой группе:\n{SEgroup}\n\
     	$О её администраторах:\n{SEadm}')
 

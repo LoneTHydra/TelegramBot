@@ -8,7 +8,6 @@ from libs import Constant
 from telebot.types import Message
 from Sub import Administration
 from Sub import Content_Block
-from libs.Constant import Token
 
 bot = telebot.TeleBot(Constant.Token)
 
