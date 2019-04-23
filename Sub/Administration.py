@@ -13,7 +13,6 @@ bot = telebot.TeleBot(Constant.Token)
 
 
 def GRL(message: Message):
-    # Need Data
 
     if Constant.COMmode and bot.get_chat_member(MainID, message.from_user.id).status in Constant.Type_Admins:
 

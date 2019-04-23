@@ -6,7 +6,9 @@ Type_Creator = 'creator'
 
 MainID = 0
 DefaultLang = 'ru'
-Path = '\\Files\\'
+Path = '\\Files\\Data.sql3'
+
+Proxy_list = {}
 
 Text = True
 AVNV = True

@@ -6,10 +6,13 @@ import Sub
 import time
 from libs import Constant
 from telebot.types import Message
+from telebot import apihelper
 from Sub import Administration
 from Sub import Content_Block
 
 bot = telebot.TeleBot(Constant.Token)
+
+apihelper.proxy = Constant.Proxy_list
 
 Service = False
 
