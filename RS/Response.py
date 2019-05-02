@@ -17,10 +17,10 @@ def Deleter(c_id, m_id):
 
 def Problem(u_id, lang):
     if Constant.DefaultLang in lang:
-        bot.send_message(u_id, 'Ошибка! Не удалось проверить ваш статус Администратора!')
+        bot.send_message(u_id, 'Ошибка! Не удалось проверить ваш статус!')
 
     else:
-        bot.send_message(u_id, 'Mistake! Failed to verify your Admin status!')
+        bot.send_message(u_id, 'Mistake! Unable to verify your status!')
 
 
 def ST(u_id, lang):
