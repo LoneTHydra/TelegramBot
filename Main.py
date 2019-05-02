@@ -6,25 +6,22 @@ import Sub
 import time
 from libs import Constant
 from telebot.types import Message
-from telebot import apihelper
 from Sub import Administration
 from Sub import Content_Block
 
 bot = telebot.TeleBot(Constant.Token)
 
-apihelper.proxy = Constant.Proxy_list
-
 Service = False
 
 
-@bot.message_handler(commands=['Groups'])
+@bot.message_handler(commands=['Dump'])
 def Ad_1(message: Message):
-    Administration.GRL(message)
+    Administration.Dump(message)
 
 
-@bot.message_handler(commands=['Find'])
-def Ad_2(message: Message):
-    Administration.FNL(message)
+# @bot.message_handler(commands=['Find'])
+# def Ad_2(message: Message):
+#    Administration.FNL(message)
 
 
 @bot.message_handler(commands=['Menu'])

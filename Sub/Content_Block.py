@@ -187,19 +187,3 @@ def NCT(message: Message):
         pass
 
     del message
-
-
-def NCP(message: Message):
-    if message.chat.type in Constant.Type_Groups and Constant.NCP:
-
-        # Response.NCP(message.chat.title, message.from_user.language_code, message.chat.id)
-        pass
-
-    # Response.Deleter(message.chat.id, message.message_id)
-    # Is need?
-
-    else:
-
-        pass
-
-    del message

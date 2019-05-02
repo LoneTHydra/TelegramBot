@@ -115,5 +115,7 @@ dmypy.json
 
 #Custom
 Data.py
+Sub/DataBase.py
 Files/Data.sql3
+libs/Constant.py
 .idea

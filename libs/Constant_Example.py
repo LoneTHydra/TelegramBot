@@ -6,9 +6,8 @@ Type_Creator = 'creator'
 
 MainID = 0
 DefaultLang = 'ru'
-Path = '\\Files\\Data.sql3'
 
-Proxy_list = {}
+DU_list = {}
 
 Text = True
 AVNV = True
