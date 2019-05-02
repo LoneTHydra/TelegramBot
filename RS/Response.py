@@ -3,7 +3,6 @@
 import telebot
 import libs
 from libs import Constant
-from libs.Constant import MainID
 
 bot = telebot.TeleBot(Constant.Token)
 
@@ -16,7 +15,7 @@ def Deleter(c_id, m_id):
         pass
 
 
-def Pr(u_id, lang):
+def Problem(u_id, lang):
     if Constant.DefaultLang in lang:
         bot.send_message(u_id, 'Ошибка! Не удалось проверить ваш статус!')
 
@@ -42,10 +41,10 @@ def NCM(title, lang, c_id):
 
 def NCT(title, lang, c_id):
     if Constant.DefaultLang in lang:
-        bot.send_message(c_id, f'Хах! Нас назвали по другому - {title}')
+        bot.send_message(c_id, f'Ух ты! У нас новое название - {title}')
 
     else:
-        bot.send_message(c_id, f'Huh! We were named differently - {title}')
+        bot.send_message(c_id, f'Wow! We have a new name - {title}')
 
 
 def Dump(c_id, path, name, lang):
@@ -69,5 +68,3 @@ def DumpERR_2(c_id, lang):
         bot.send_message(c_id, f'Ошибка! Неправильное формирование запроса!')
     else:
         bot.send_message(c_id, f'Mistake! Incorrect formation of the request!')
-
-

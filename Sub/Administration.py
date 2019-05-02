@@ -47,7 +47,7 @@ def Dump(message: Message):
 
     else:
 
-        Response.Pr(message.from_user.id, message.from_user.language_code)
+        Response.Problem(message.from_user.id, message.from_user.language_code)
         Response.Deleter(message.chat.id, message.message_id)
 
     del message
@@ -66,7 +66,7 @@ def ADM(message: Message):
 
     else:
 
-        Response.Pr(message.from_user.id, message.from_user.language_code)
+        Response.Problem(message.from_user.id, message.from_user.language_code)
         Response.Deleter(message.chat.id, message.message_id)
 
     del message
@@ -87,7 +87,7 @@ def Stop(message: Message):
 
     else:
 
-        Response.Pr(message.from_user.id, message.from_user.language_code)
+        Response.Problem(message.from_user.id, message.from_user.language_code)
         Response.Deleter(message.chat.id, message.message_id)
 
     del message
