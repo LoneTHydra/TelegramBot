@@ -114,8 +114,6 @@ dmypy.json
 .pyre/
 
 #Custom
-Data.py
-Sub/DataBase.py
-Files/Data.sql3
+Sub/Auxiliary_Unit.py
 libs/Constant.py
 .idea
