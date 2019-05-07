@@ -15,7 +15,7 @@ bot = telebot.TeleBot(Constant.Token)
 def Dump(message: Message):
     if Constant.COMmode and bot.get_chat_member(MainID, message.from_user.id).status in Constant.Type_Admins:
 
-        if message.chat.type == Constant.Type_Private or message.chat.type == MainID:
+        if message.chat.type == Constant.Type_Private or message.chat.id == MainID:
 
             SE = re.search(r'("(\w|\s|\W)*")', message.text)
 
@@ -23,19 +23,35 @@ def Dump(message: Message):
 
                 SE = re.split(r',', SE.group())
 
-                for i in SE:
+                if '"All"' in SE:
 
-                    SE = re.sub(r'(\s|")', '', i)
+                    for i in Constant.DU_list:
 
-                    if SE in Constant.DU_list and os.path.exists(Constant.DU_list.get(SE)):
+                        Path = f'{os.getcwd()}\\{Constant.DU_list.get(i)}'
 
-                        Path = Constant.DU_list.get(SE)
+                        if os.path.exists(Path):
 
-                        Response.Dump(message.chat.id, Path, SE, message.from_user.language_code)
+                            Response.Dump(message.chat.id, Path, i, message.from_user.language_code)
 
-                    else:
+                        else:
 
-                        Response.DumpERR_1(message.chat.id, message.from_user.language_code, SE)
+                            Response.DumpERR_1(message.chat.id, message.from_user.language_code, i)
+
+                else:
+
+                    for i in SE:
+
+                        SE = re.sub(r'(\s|")', '', i)
+
+                        Path = f'{os.getcwd()}\\{Constant.DU_list.get(SE)}'
+
+                        if SE in Constant.DU_list and os.path.exists(Path):
+
+                            Response.Dump(message.chat.id, Path, SE, message.from_user.language_code)
+
+                        else:
+
+                            Response.DumpERR_1(message.chat.id, message.from_user.language_code, SE)
 
             else:
 
@@ -56,30 +72,9 @@ def Dump(message: Message):
 def ADM(message: Message):
     if Constant.COMmode and bot.get_chat_member(MainID, message.from_user.id).status in Constant.Type_Admins:
 
-        if message.chat.type == Constant.Type_Private or message.chat.type == MainID:
+        if message.chat.type == Constant.Type_Private or message.chat.id == MainID:
 
             bot.send_message(message.chat.id, 'Извените, находится в разработке')
-
-        else:
-
-            Response.Deleter(message.chat.id, message.message_id)
-
-    else:
-
-        Response.Problem(message.from_user.id, message.from_user.language_code)
-        Response.Deleter(message.chat.id, message.message_id)
-
-    del message
-
-
-def Stop(message: Message):
-    if Constant.COMmode and bot.get_chat_member(MainID, message.from_user.id).status in Constant.Type_Creator:
-
-        if message.chat.type in Constant.Type_Private:
-
-            Response.ST(message.from_user.id, message.from_user.language_code)
-
-            return True
 
         else:
 

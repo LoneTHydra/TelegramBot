@@ -10,31 +10,23 @@ from Sub import Administration
 from Sub import Content_Block
 
 bot = telebot.TeleBot(Constant.Token)
-
-Service = False
+Counter = 0
 
 
 @bot.message_handler(commands=['Dump'])
 def Ad_1(message: Message):
-    Administration.Dump(message)
-
-
-# @bot.message_handler(commands=['Find'])
-# def Ad_2(message: Message):
-#    Administration.FNL(message)
+    try:
+        Administration.Dump(message)
+    except Exception as Ex:
+        open(Constant.LogPath, 'a').write('$Dump$ ' + str(Ex) + '\n')
 
 
 @bot.message_handler(commands=['Menu'])
-def Ad_3(message: Message):
-    Administration.ADM(message)
-
-
-@bot.message_handler(commands=['Stop'])
-def Ad_4(message: Message):
-    global Service
-    Service = Administration.Stop(message)
-    if Service:
-        bot.stop_bot()
+def Ad_2(message: Message):
+    try:
+        Administration.ADM(message)
+    except Exception as Ex:
+        open(Constant.LogPath, 'a').write('$Menu$ ' + str(Ex) + '\n')
 
 
 @bot.message_handler(content_types=['text'])
@@ -82,9 +74,10 @@ def nct(message: Message):
     Content_Block.NCT(message)
 
 
-while not Service:
+while Counter < 10:
     try:
         bot.polling(none_stop=True, timeout=60)
-    except Exception as Err:
-        print(Err)
+    except Exception as Ex:
+        print('Restart attempt ...')
+        Counter += 1
         time.sleep(2)

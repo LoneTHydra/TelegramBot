@@ -49,7 +49,7 @@ def NCT(title, lang, c_id):
 
 def Dump(c_id, path, name, lang):
     if Constant.DefaultLang in lang:
-        bot.send_message(c_id, f'Дамп базы {name} завершён')
+        bot.send_message(c_id, f'Дамп базы {name} - завершён')
         bot.send_document(c_id, open(path))
     else:
         bot.send_message(c_id, f'Database dump {name} completed')

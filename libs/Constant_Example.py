@@ -6,6 +6,7 @@ Type_Creator = 'creator'
 
 MainID = 0
 DefaultLang = 'ru'
+LogPath = 'ErrLog.txt'
 
 DU_list = {}
 
@@ -18,7 +19,6 @@ LC = False
 NCM = True
 LCM = False
 NCT = True
-NCP = False
 
 COMmode = True
 WARNmode = True
